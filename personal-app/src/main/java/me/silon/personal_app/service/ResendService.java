@@ -12,12 +12,18 @@ public class ResendService {
     @Value("${RESEND_API_KEY}")
     private String resendApiKey;
 
+    @Value("${EMAIL_TO}")
+    private String emailTo;
+
+    @Value("${EMAIL_FROM}")
+    private String emailFrom;
+
     public void sendEmail(String nameCompany, String returnEmail, String message) throws ResendException {
         Resend resend = new Resend(resendApiKey);
 
         CreateEmailOptions params = CreateEmailOptions.builder()
-                .from("admin@silon.me")
-                .to("silon.peter@gmail.com")
+                .from(emailFrom)
+                .to(emailTo)
                 .replyTo(returnEmail)
                 .subject("silon.me - Contact Form")
                 .html(buildSimpleHtmlEmail(nameCompany, message))
@@ -34,7 +40,7 @@ public class ResendService {
                 <p><b>Message Content:</b></p>
                 <p>%s</p>
                 <br>
-                <p><i>Sent from Cloud Run. Hit reply to answer the user.</i></p>
+                <p><i>Hit reply to answer the user.</i></p>
                 """.formatted(nameCompany, message);
     }
 }
