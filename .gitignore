@@ -5,3 +5,6 @@
 # Files
 *.hprof
 *.jfr
+
+# Deployment details
+service.yaml
