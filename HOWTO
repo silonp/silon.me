@@ -1,7 +1,7 @@
 # Change the version!
 # Change folder to silon.me!
-gcloud builds submit --tag gcr.io/personal-app-488917/personal-app:v6 --service-account=projects/personal-app-488917/serviceAccounts/personal-app-service@personal-app-488917.iam.gserviceaccount.com --gcs-log-dir=gs://personal-app-488917_cloudbuild
-gcloud run deploy personal-app --image gcr.io/personal-app-488917/personal-app:v6 --service-account=personal-app-service@personal-app-488917.iam.gserviceaccount.com --region europe-west1 --platform managed --allow-unauthenticated
+gcloud builds submit --tag gcr.io/personal-app-488917/personal-app:v7 --service-account=projects/personal-app-488917/serviceAccounts/personal-app-service@personal-app-488917.iam.gserviceaccount.com --gcs-log-dir=gs://personal-app-488917_cloudbuild
+gcloud run deploy personal-app --image gcr.io/personal-app-488917/personal-app:v7 --service-account=personal-app-service@personal-app-488917.iam.gserviceaccount.com --region europe-west1 --platform managed --allow-unauthenticated
 
 # Re-deploy
 gcloud run services describe personal-app --format export --region europe-west1 > service.yaml
